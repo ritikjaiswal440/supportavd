@@ -17,10 +17,11 @@ async function handleAuth() {
         // Fetch API request to GAS
         const response = await fetch(API_URL, {
             method: 'POST',
-            headers: { 'Content-Type': 'text/plain;charset=utf-8' }, // crucial to bypass CORS
+            headers: {
+                'Content-Type': 'text/plain;charset=utf-8' // THIS IS MANDATORY
+            },
             body: JSON.stringify({ action: 'validateRef', ref: code })
         });
-        
         const data = await response.json();
 
         if (data.status === 'success') {
