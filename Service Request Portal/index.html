@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Secure Support Portal</title>
+    <style>
+        /* Add your CSS styles from earlier here */
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .card {
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        input,
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card" id="authView">
+        <div style="font-size: 40px; font-weight: bold; color: #2563eb;">S</div>
+        <h2>Secure Support Portal</h2>
+        <p>Enter your client reference code below.</p>
+        <input type="text" id="clientCode" placeholder="Reference code (e.g. A7K2L1)">
+        <button onclick="handleAuth()" id="authBtn">Continue to Portal</button>
+        <div class="error" id="authError">Invalid code. Please try again.</div>
+    </div>
+
+    <div class="card hidden" id="formView">
+        <h2>Submit Request</h2>
+        <h4 id="companyDisplay" style="color:#2563eb;"></h4>
+
+        <input type="text" id="reqName" placeholder="Your Name" required>
+        <input type="email" id="reqEmail" placeholder="Your Email" required>
+        <button onclick="submitForm()" id="submitBtn">Submit Request</button>
+        <div class="error" id="formError"></div>
+    </div>
+
+    <div class="card hidden" id="successView">
+        <h2>Success!</h2>
+        <p>Your Request ID is: <strong id="reqIdDisplay"></strong></p>
+        <button onclick="window.location.reload()">Submit Another</button>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>
