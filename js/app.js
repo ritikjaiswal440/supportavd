@@ -1,4 +1,4 @@
-const API_URL = 'https://script.google.com/macros/s/AKfycbwvBinI66lL_HvT25fP8qGR7mgpLd8LFzBVvBl9vJpEWkK8jl6YgwMh2mdKMfwd53keWQ/exec';
+const API_URL = 'https://script.google.com/macros/s/AKfycbyWouaByUpSZT9Q8nTqFXdK352uLAc6y2yGRjpxP3Nn4SALScWNVN_-SsHPBClCjuWQ0w/exec';
 
 let productCount = 0;
 const MAX_PRODUCTS = 5;
