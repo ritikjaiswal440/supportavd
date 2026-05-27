@@ -15,12 +15,12 @@ async function handleAuth() {
 
     try {
         // Fetch API request to GAS
-        const response = await fetch(API_URL, {
+      const response = await fetch(API_URL, {
             method: 'POST',
             headers: {
-                'Content-Type': 'text/plain;charset=utf-8' // THIS IS MANDATORY
+            'Content-Type': 'text/plain;charset=utf-8' // Forces browser to bypass pre-flight check
             },
-            body: JSON.stringify({ action: 'validateRef', ref: code })
+            body: JSON.stringify(payload)
         });
         const data = await response.json();
 
