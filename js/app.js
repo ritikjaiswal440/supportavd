@@ -102,7 +102,6 @@ function getBase64(file) {
     });
 }
 
-// Submit Final Form
 async function submitForm() {
     const btn = document.getElementById('submitBtn');
     
@@ -113,9 +112,13 @@ async function submitForm() {
     const reqRoom = document.getElementById('reqRoom').value.trim();
     const reqCategory = document.getElementById('reqCategory').value;
     const reqServiceType = document.getElementById('reqServiceType').value;
+    
+    // NEW: Capture the description
+    const reqDescription = document.getElementById('reqDescription').value.trim();
 
-    if (!reqName || !reqEmail || !reqLocation || !reqRoom || !reqCategory || !reqServiceType) {
-        alert("Please fill out all mandatory general fields.");
+    // NEW: Added reqDescription to validation
+    if (!reqName || !reqEmail || !reqLocation || !reqRoom || !reqCategory || !reqServiceType || !reqDescription) {
+        alert("Please fill out all mandatory general fields, including the Issue Description.");
         return;
     }
 
@@ -150,6 +153,7 @@ async function submitForm() {
         }
     }
 
+    // NEW: Added issueDescription to the payload
     const payload = {
         action: 'submitRequest',
         ref: window.sessionClientRef,
@@ -159,6 +163,7 @@ async function submitForm() {
         roomName: reqRoom,
         category: reqCategory,
         serviceType: reqServiceType,
+        issueDescription: reqDescription, 
         products: productsArray,
         fileData: fileDataObj
     };
