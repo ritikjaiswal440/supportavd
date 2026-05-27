@@ -1,3 +1,15 @@
+// Automatically check URL for the ?ref= parameter when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const refParam = urlParams.get('ref');
+
+    if (refParam) {
+        // Auto-fill the hidden input and immediately trigger authentication
+        document.getElementById('clientCode').value = refParam;
+        handleAuth();
+    }
+});
+
 // PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL HERE:
 const API_URL = 'https://script.google.com/macros/s/AKfycbwvBinI66lL_HvT25fP8qGR7mgpLd8LFzBVvBl9vJpEWkK8jl6YgwMh2mdKMfwd53keWQ/exec';
 
