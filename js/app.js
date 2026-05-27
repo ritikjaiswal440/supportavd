@@ -1,5 +1,5 @@
 // PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL HERE:
-const API_URL = 'https://script.google.com/macros/s/AKfycbxvw4P-48RWN29dzKMgDicq3WJsr9Bvs8uicJzmbP6qqmkXWSlzmNrSyc0Nq3mcc3B8mQ/exec';
+const API_URL = 'https://script.google.com/macros/s/AKfycbwvBinI66lL_HvT25fP8qGR7mgpLd8LFzBVvBl9vJpEWkK8jl6YgwMh2mdKMfwd53keWQ/exec';
 
 // 1. Handle the Authentication Step
 async function handleAuth() {
