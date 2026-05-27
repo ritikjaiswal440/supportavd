@@ -6,6 +6,12 @@
     <title>Secure Support Portal</title>
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Extra styles for the dynamic product boxes */
+        .product-box { background: #f8fafc; border: 1px solid #e2e8f0; padding: 15px; border-radius: 8px; margin-bottom: 15px; text-align: left; }
+        .product-box h4 { margin-bottom: 10px; color: #1e293b; font-size: 15px; }
+        .section-title { font-size: 18px; font-weight: 600; color: #111827; margin: 25px 0 15px; text-align: left; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+    </style>
 </head>
 <body>
     <div class="page-wrapper">
@@ -30,6 +36,7 @@
                 <h2>Service Request Form</h2>
                 <div class="company-display" id="companyDisplay"></div>
                 
+                <div class="section-title">General Information</div>
                 <div class="grid-2">
                     <div class="input-group">
                         <label>Requester Name *</label>
@@ -52,7 +59,40 @@
                     </div>
                 </div>
 
-                <button class="btn btn-primary" id="submitBtn" onclick="submitForm()">Submit Request</button>
+                <div class="grid-2">
+                    <div class="input-group">
+                        <label>Category *</label>
+                        <select id="reqCategory" required style="width: 100%; padding: 14px 16px; border: 1px solid #d1d5db; border-radius: 12px; font-size: 15px; outline: none;">
+                            <option value="">Select...</option>
+                            <option value="Hardware">Hardware</option>
+                            <option value="Software">Software</option>
+                            <option value="Networking">Networking</option>
+                            <option value="General Maintenance">General Maintenance</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Type of Service *</label>
+                        <select id="reqServiceType" required style="width: 100%; padding: 14px 16px; border: 1px solid #d1d5db; border-radius: 12px; font-size: 15px; outline: none;">
+                            <option value="">Select...</option>
+                            <option value="Repair">Repair</option>
+                            <option value="Replacement">Replacement</option>
+                            <option value="Inspection">Inspection</option>
+                            <option value="New Installation">New Installation</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="section-title">Products</div>
+                <div id="productContainer"></div>
+                <button type="button" class="btn btn-secondary" id="addProdBtn" onclick="addProductUI()" style="margin-bottom: 20px;">+ Add Product (Max 5)</button>
+
+                <div class="section-title">Attachments</div>
+                <div class="input-group">
+                    <label>Invoice / Document (Optional)</label>
+                    <input type="file" id="reqInvoice" accept=".pdf,.jpg,.jpeg,.png">
+                </div>
+
+                <button class="btn btn-primary" id="submitBtn" onclick="submitForm()" style="margin-top: 10px;">Submit Request</button>
             </div>
 
             <div class="card hidden" id="successView" style="text-align: center;">
